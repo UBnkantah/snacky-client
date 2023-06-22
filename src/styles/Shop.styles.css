@@ -1,0 +1,20 @@
+
+.shop-item-wrap-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 50px 0px;
+    gap: 20px;
+}
+.shop-item-container{
+    width: 260px;
+    max-width: 100%;
+    box-shadow: 0px 0px 1px black;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+.shop-item-container > img{
+    width: 100%;
+}

@@ -1,0 +1,60 @@
+/* Navbar */
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: green;
+}
+
+.navbar-container > nav{
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-container > nav > a{
+    font-size: 18px;
+}
+
+@media screen and (max-width: 767px) {
+    .navbar-container > nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+    }
+}
+
+/* HomeHero */
+.home-hero-container{
+    height: 100vh;
+}
+.carousel-inner > .hero-carousel-img{
+    height: 80vh;
+}
+.carousel-inner > .hero-carousel-img > img{
+    object-fit: fill;
+}
+
+/* Home-Ft-Card */
+.homeftmain{
+    background-color: #f2f3f5;
+}
+.homeftcard-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 15px;
+    /* background-color: #f2f3f5; */
+    /* border-right-color:  black; */
+}
+.homeftcard-container > div > h5{
+    font-size: 16px;
+    font-weight: 700;
+}
