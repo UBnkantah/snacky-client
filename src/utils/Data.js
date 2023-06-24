@@ -55,3 +55,26 @@ export const FavPizzaData = [
     price: 18.0,
   }
 ];
+
+export const SnackyChefData = [
+  {
+    id: 1,
+    name: "Ethan Hunt",
+    title: "FRENCH MASTER CHEF 2018"
+  },
+  {
+    id: 2,
+    name: "Micheal Edward",
+    title: "STEAK CHEF",
+  },
+  {
+    id: 3,
+    name: "Bob Kenedy",
+    title: "SEAFOOD CHEF"
+  },
+  {
+    id: 4,
+    name: "Daniel Huston",
+    title: "ASIAN STYLE CHEF"
+  }
+]

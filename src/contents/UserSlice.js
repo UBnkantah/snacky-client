@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios"
 import jwtDecode from "jwt-decode"
 
-export const registerUser = createAsyncThunk("auth/registerUser", (async( user, {rejectedWithValue})=> {
+export const registerUser = createAsyncThunk("auth/registerUser", async( user, {rejectedWithValue})=> {
     try{
-        const token = await axios.post("http://localhost:2023/register", {
+        const token = await axios.post("http://localhost:2023/api/v1/register", {
             name: user.name,
             email: user.email,
             password: user.password
@@ -15,11 +15,11 @@ export const registerUser = createAsyncThunk("auth/registerUser", (async( user, 
         console.log(err.response.data)
         return rejectedWithValue(err.response.data)
     }
-}))
+})
 
-export const loginUser = createAsyncThunk("auth/loginUser", (async(user, {rejectedWithValue} )=> {
+export const loginUser = createAsyncThunk("auth/loginUser", async(user, {rejectedWithValue} )=> {
     try{
-        const token = await axios.post("http://localhost:2023/login", {
+        const token = await axios.post("http://localhost:2023/api/v1/login", {
             email: user.email,
             password: user.password
         })
@@ -29,7 +29,7 @@ export const loginUser = createAsyncThunk("auth/loginUser", (async(user, {reject
         console.log(err.response.data)
         return rejectedWithValue(err.response.data)
     }
-}))
+})
 
 const initialState = {
     token: localStorage.getItem("token"),
@@ -44,10 +44,10 @@ const initialState = {
 }
 
 const userSlice = createSlice({
-    name: 'user',
+    name: 'auth',
     initialState,
     reducers: {
-        logout (state){
+        logoutUser(state, action){
             localStorage.removeItem("token")
 
             return {
@@ -61,6 +61,23 @@ const userSlice = createSlice({
               loginError: "",
               userLoaded: false,
             };
+        },
+        loaduser(state, action) {
+            const token = state.token
+
+            if(token){
+                const user = jwtDecode(token);
+
+                return{
+                    ...state,
+                    token,
+                    name: user.name,  
+                    email: user.email,
+                    _id: user._id,
+                    userLoaded: true
+                }
+                
+            }
         }
     },
     extraReducers: (builder) => {
@@ -79,9 +96,7 @@ const userSlice = createSlice({
                     _id: user._id,
                     registerStatus: "success"
                 }
-            }else{
-                return state
-            }
+            } else return state
         })
         builder.addCase(registerUser.rejected, (state, action) => {
             return {
@@ -98,6 +113,7 @@ const userSlice = createSlice({
                 const user = jwtDecode(action.payload)
                 return {
                   ...state,
+                  token: action.payload,
                   name: user.name,
                   email: user.email,
                   _id: user._id,
@@ -115,5 +131,5 @@ const userSlice = createSlice({
     }
 })
 
-export const {logout} = userSlice.actions;
+export const {logout, loaduser} = userSlice.actions;
 export default userSlice.reducer;

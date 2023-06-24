@@ -12,9 +12,9 @@ const HomeHero = () => {
 
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
+      <Carousel.Item className="vh-75">
         <img
-          className="d-block w-100"
+          className="d-block w-100 h-100"
           src={pizzaImg}
           alt="First slide"
         />
@@ -23,9 +23,9 @@ const HomeHero = () => {
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item className='vh-75'>
         <img
-          className="d-block w-100"
+          className="d-block h-100 w-100"
           src="https://smartdemowp.com/snacky/wp-content/uploads/2022/01/banner-1.jpg"
           alt="Second slide"
         />
@@ -35,9 +35,9 @@ const HomeHero = () => {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item className='vh-75'>
         <img
-          className="d-block w-100"
+          className="d-block w-100 h-100"
           src="https://smartdemowp.com/snacky/wp-content/uploads/2022/01/banner-3.jpg"
           alt="Third slide"
         />

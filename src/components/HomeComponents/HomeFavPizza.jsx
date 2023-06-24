@@ -6,7 +6,7 @@ const HomeFavPizza = () => {
   return (
     <div className='container'>
         <div>
-            <FavPizzaItem />
+          <FavPizzaItem />
         </div> 
     </div>    
     
