@@ -12,7 +12,7 @@ const Navbar = () => {
     const auth = useSelector(state => state.auth)
 
     const showNavbar = () => {
-        NavRef.current.classList.toggle("responsive_Navbar")
+        NavRef.current.classList.toggle("responsive_navbar")
     }
   return (
     <div className='navbar-container'>
@@ -23,7 +23,6 @@ const Navbar = () => {
         </h2>
         <nav ref={NavRef}>
             <Link to="/about" className='text-decoration-none text-white'>About Us</Link>
-            <Link to="/blog" className='text-decoration-none text-white'>Blog</Link>
             <Link to="/shop" className='text-decoration-none text-white'>Shop</Link>
             <Link to="/faq" className='text-decoration-none text-white'>FAQ</Link>
             <Link to="/contact" className='text-decoration-none text-white'>Contact Us</Link>
@@ -31,18 +30,20 @@ const Navbar = () => {
                 <GrCart color='white' size={30} />
                 <span className='text-white'>{cartTotalQuantity}</span>
             </Link>
-            {/* <div>
+            <div className='auth-btn-mob'>
                 <button className='btn btn-primary'>Login</button>
                 <button className='btn btn-warning'>Register</button>
-            </div> */}
-            <FaTimes />
+            </div>
+            <div className='navicon'>
+            <FaTimes   size={25} onClick={showNavbar}/>
+            </div>
         </nav>
         {/* {auth._id ?  */}
-            <div>
+            {/* <div>
                 <button className='btn btn-danger'>Log Out</button>
-            </div>
+            </div> */}
         {/* :   */}
-        <div>
+        <div className='auth-btn-desk'>
             <Link to="/login">
                 <button className='btn btn-primary'>Login</button>
             </Link>
@@ -51,8 +52,9 @@ const Navbar = () => {
             </Link>
         </div>
         {/* } */}
-        
-        <FaBars />
+        <div className='navicon'>
+        <FaBars color="black" size={25} onClick={showNavbar}/>
+        </div>
     </div>
   )
 }

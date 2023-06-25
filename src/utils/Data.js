@@ -60,21 +60,25 @@ export const SnackyChefData = [
   {
     id: 1,
     name: "Ethan Hunt",
-    title: "FRENCH MASTER CHEF 2018"
+    title: "FRENCH MASTER CHEF 2018",
+    image: require("../assets/ethan-hunt.png")
   },
   {
     id: 2,
     name: "Micheal Edward",
     title: "STEAK CHEF",
+    image: require("../assets/micheal-edward.png")
   },
   {
     id: 3,
     name: "Bob Kenedy",
-    title: "SEAFOOD CHEF"
+    title: "SEAFOOD CHEF",
+    image: require("../assets/bob-kenedy.png")
   },
   {
     id: 4,
     name: "Daniel Huston",
-    title: "ASIAN STYLE CHEF"
+    title: "ASIAN STYLE CHEF",
+    image: require("../assets/daniel-huston.png")
   }
 ]

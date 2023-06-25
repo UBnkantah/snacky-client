@@ -15,6 +15,16 @@
 .navbar-container > nav > a{
     font-size: 18px;
 }
+.navbar-container .auth-btn-mob{
+    display: none;
+}
+.navbar-container .auth-btn-desk{
+    display: flex;
+    gap: 1em;
+}
+.navicon{
+    display: none;
+}
 
 @media screen and (max-width: 767px) {
     .navbar-container > nav{
@@ -23,11 +33,27 @@
         align-items: center;
         width: 50vw;
         height: 100vh;
-        position: absolute;
+        position: fixed;
         top: 0;
-        right: 0;
-
+        left: 0;
+        transform: translateY(-100vh);
+        transition: 1s;
+        background-color: black;
     }
+    .navbar-container .reponsive_navbar{
+        transform: none;
+    }
+    .navbar-container .auth-btn-mob{
+        display: flex;
+        gap: 1em;
+    }
+    .navbar-container  .auth-btn-desk{
+        display: none;
+    }
+    .navicon{
+        display: block;
+    }
+   
 }
 
 /* HomeHero */

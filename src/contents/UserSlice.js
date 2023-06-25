@@ -1,25 +1,33 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios"
 import jwtDecode from "jwt-decode"
+import {toast} from "react-toastify"
 
 export const registerUser = createAsyncThunk("auth/registerUser", async( user, {rejectedWithValue})=> {
     try{
-        const token = await axios.post("http://localhost:2023/api/v1/register", {
+        const token = await axios.post(
+          "https://snacky-server.onrender.com/api/v1/register",
+          {
             name: user.name,
             email: user.email,
-            password: user.password
-        })
+            password: user.password,
+          }
+        );
         localStorage.setItem("token", token.data)
+        toast.success("Registered Successfully", {
+          position: "bottom-left",
+        });
         return token.data
     }catch(err){
         console.log(err.response.data)
+        toast.error(err.response.data)
         return rejectedWithValue(err.response.data)
     }
 })
 
 export const loginUser = createAsyncThunk("auth/loginUser", async(user, {rejectedWithValue} )=> {
     try{
-        const token = await axios.post("http://localhost:2023/api/v1/login", {
+        const token = await axios.post("https://snacky-server.onrender.com/api/v1/login", {
             email: user.email,
             password: user.password
         })
